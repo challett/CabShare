@@ -9,5 +9,6 @@
 
     <!-- In order for this demo to work you need to provide your own Firebase, API keys and App IDs -->
     <string name="firebase_url">https://intense-torch-3362.firebaseio.com/</string>
+    <string name="title_activity_profile_creation_page">ProfileCreationPage</string>
 
 </resources>

@@ -16,6 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="ProfileCreationPage"
+            android:label="@string/title_activity_profile_creation_page" >
+        </activity>
     </application>
+
     <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

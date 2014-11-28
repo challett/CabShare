@@ -33,39 +33,32 @@ import java.util.Map;
  */
 public class MyActivity extends ActionBarActivity{
 
-    /***************************************
-     *               GENERAL               *
-     ***************************************/
-    /* TextView that is used to display information about the logged in user */
     private TextView mLoggedInStatusTextView;
-
-    /* A dialog that is presented until the Firebase authentication finished. */
     private ProgressDialog mAuthProgressDialog;
-
-    /* A reference to the firebase */
     private Firebase ref;
-
-    /* Data from the authenticated user */
     private AuthData authData;
-
-    /* A tag that is used for logging statements */
     private static final String TAG = "LoginDemo";
 
     /***************************************
      *               PASSWORD              *
      ***************************************/
     private Button mPasswordLoginButton;
+    private Button newUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /* Load the view and display it */
         setContentView(R.layout.activity_my);
 
+        newUser = (Button)findViewById(R.id.button);
+        newUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(MyActivity.this, ProfileCreationPage.class);
+                startActivity(myIntent);
+            }
+        });
 
-        /***************************************
-         *               PASSWORD              *
-         ***************************************/
         mPasswordLoginButton = (Button)findViewById(R.id.login_with_password);
         mPasswordLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -234,5 +227,8 @@ public class MyActivity extends ActionBarActivity{
     public void loginWithPassword() {
         mAuthProgressDialog.show();
         ref.authWithPassword("test@firebaseuser.com", "test1234", new AuthResultHandler("password"));
-    }}
+
+    }
+
+}
 
