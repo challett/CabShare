@@ -227,7 +227,6 @@ public class MyActivity extends ActionBarActivity{
     public void loginWithPassword() {
         mAuthProgressDialog.show();
         ref.authWithPassword("test@firebaseuser.com", "test1234", new AuthResultHandler("password"));
-
     }
 
 }

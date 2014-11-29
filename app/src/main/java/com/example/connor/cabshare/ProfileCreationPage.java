@@ -25,7 +25,7 @@ import java.util.Map;
 
 
 public class ProfileCreationPage extends ActionBarActivity {
-
+    private Firebase myFirebaseRef = new Firebase("https://intense-torch-3362.firebaseio.com/");
     private Button submit;
     private Button cancel;
 
@@ -41,6 +41,13 @@ public class ProfileCreationPage extends ActionBarActivity {
     private String tempName;
     private String tempPicURL;
     private String tempUsername;
+    private AuthData authData;
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Map<String, String> options = new HashMap<String, String>();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +56,6 @@ public class ProfileCreationPage extends ActionBarActivity {
 
         submit = (Button)findViewById(R.id.Submit);
         cancel = (Button)findViewById(R.id.Cancel);
-
-
-
-
-
-
     }
 
     public void submitClick(View v){
@@ -69,7 +70,7 @@ public class ProfileCreationPage extends ActionBarActivity {
         username = (EditText)findViewById(R.id.editText5);
         tempUsername = username.getEditableText().toString();
 
-        Firebase myFirebaseRef = new Firebase("https://intense-torch-3362.firebaseio.com/");
+
         myFirebaseRef.createUser(tempEmail, tempPass, new Firebase.ResultHandler() {
             @Override
             public void onSuccess() {
@@ -84,7 +85,7 @@ public class ProfileCreationPage extends ActionBarActivity {
         newUser.put("Name", tempName);
         newUser.put("Email", tempEmail);
         newUser.put("picURL", tempPicURL);
-        myFirebaseRef.child("Users").child(tempUsername).setValue(newUser);
+        myFirebaseRef.child("Users").child("test2").setValue(newUser);
     }
 
     @Override
