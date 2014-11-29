@@ -31,10 +31,16 @@ public class ProfileCreationPage extends ActionBarActivity {
 
     private EditText email;
     private EditText pass;
+    private EditText name;
+    private EditText picURL;
+    private EditText username;
 
     private String tempEmail;
     private String tempUser;
     private String tempPass;
+    private String tempName;
+    private String tempPicURL;
+    private String tempUsername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,13 @@ public class ProfileCreationPage extends ActionBarActivity {
         tempEmail = email.getText().toString();
         pass = (EditText)findViewById(R.id.editText3);
         tempPass = pass.getEditableText().toString();
+        name = (EditText)findViewById(R.id.editText2);
+        tempName = name.getEditableText().toString();
+        picURL = (EditText)findViewById(R.id.editText4);
+        tempPicURL = picURL.getEditableText().toString();
+        username = (EditText)findViewById(R.id.editText5);
+        tempUsername = username.getEditableText().toString();
+
         Firebase myFirebaseRef = new Firebase("https://intense-torch-3362.firebaseio.com/");
         myFirebaseRef.createUser(tempEmail, tempPass, new Firebase.ResultHandler() {
             @Override
@@ -67,6 +80,11 @@ public class ProfileCreationPage extends ActionBarActivity {
                 // there was an error
             }
         });
+        Map<String, String> newUser = new HashMap<String, String>();
+        newUser.put("Name", tempName);
+        newUser.put("Email", tempEmail);
+        newUser.put("picURL", tempPicURL);
+        myFirebaseRef.child("Users").child(tempUsername).setValue(newUser);
     }
 
     @Override
