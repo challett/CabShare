@@ -18,6 +18,7 @@ import android.widget.TextView;
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.example.connor.cabshare.MyActivity;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -42,6 +43,8 @@ public class ProfileCreationPage extends ActionBarActivity {
     private String tempPicURL;
     private String tempUsername;
     private AuthData authData;
+
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -53,9 +56,10 @@ public class ProfileCreationPage extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_creation_page);
-
+        authData = com.example.connor.cabshare.MyActivity.getInstance();
         submit = (Button)findViewById(R.id.Submit);
         cancel = (Button)findViewById(R.id.Cancel);
+
     }
 
     public void submitClick(View v){
@@ -85,7 +89,7 @@ public class ProfileCreationPage extends ActionBarActivity {
         newUser.put("Name", tempName);
         newUser.put("Email", tempEmail);
         newUser.put("picURL", tempPicURL);
-        myFirebaseRef.child("Users").child("test2").setValue(newUser);
+        //myFirebaseRef.child("Users").child(authData.getUid()).setValue(newUser);
     }
 
     @Override

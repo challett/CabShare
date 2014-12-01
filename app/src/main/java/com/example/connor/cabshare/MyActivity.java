@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.firebase.client.AuthData;
@@ -36,8 +37,12 @@ public class MyActivity extends ActionBarActivity{
     private TextView mLoggedInStatusTextView;
     private ProgressDialog mAuthProgressDialog;
     private Firebase ref;
-    private AuthData authData;
+    private static AuthData authData;
+    public static AuthData authData2;
     private static final String TAG = "LoginDemo";
+
+    private EditText email;
+    private EditText pass;
 
     /***************************************
      *               PASSWORD              *
@@ -45,11 +50,18 @@ public class MyActivity extends ActionBarActivity{
     private Button mPasswordLoginButton;
     private Button newUser;
 
+    public static synchronized AuthData getInstance(){
+        authData2 = authData;
+        return authData2;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
+        email = (EditText)findViewById(R.id.editText);
+        pass = (EditText)findViewById(R.id.editText2);
         newUser = (Button)findViewById(R.id.button);
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,6 +78,8 @@ public class MyActivity extends ActionBarActivity{
                 loginWithPassword();
             }
         });
+
+
 
 
         /***************************************
@@ -165,11 +179,14 @@ public class MyActivity extends ActionBarActivity{
         if (authData != null) {
             /* Hide all the login buttons */
             mPasswordLoginButton.setVisibility(View.GONE);
+            //newUser.setVisibility(View.GONE);
+
             mLoggedInStatusTextView.setVisibility(View.VISIBLE);
         } else {
             /* No authenticated user show all the login buttons */
             mPasswordLoginButton.setVisibility(View.VISIBLE);
             mLoggedInStatusTextView.setVisibility(View.GONE);
+            newUser.setVisibility(View.VISIBLE);
         }
         this.authData = authData;
         /* invalidate options menu to hide/show the logout button */
@@ -225,8 +242,11 @@ public class MyActivity extends ActionBarActivity{
      *               PASSWORD              *
      ***************************************/
     public void loginWithPassword() {
+        String tempEmail = email.getEditableText().toString();
+        String tempPass = pass.getEditableText().toString();
+
         mAuthProgressDialog.show();
-        ref.authWithPassword("test@firebaseuser.com", "test1234", new AuthResultHandler("password"));
+        ref.authWithPassword(tempEmail, tempPass, new AuthResultHandler("password"));
     }
 
 }
