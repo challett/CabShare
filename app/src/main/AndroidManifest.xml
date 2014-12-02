@@ -20,8 +20,14 @@
             android:name="ProfileCreationPage"
             android:label="@string/title_activity_profile_creation_page" >
         </activity>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAE7I04-x8y8T3vfuTSqtdFc2BWEEBq1OA"/>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
 </manifest>

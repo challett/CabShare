@@ -3,8 +3,6 @@ package com.example.connor.cabshare;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -19,7 +17,6 @@ import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -50,6 +47,9 @@ public class MyActivity extends ActionBarActivity{
     private Button mPasswordLoginButton;
     private Button newUser;
 
+    //map test
+    private Button currentLocation;
+
     public static synchronized AuthData getInstance(){
         authData2 = authData;
         return authData2;
@@ -78,6 +78,7 @@ public class MyActivity extends ActionBarActivity{
                 loginWithPassword();
             }
         });
+
 
 
 
@@ -140,6 +141,8 @@ public class MyActivity extends ActionBarActivity{
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
     /**
      * Unauthenticate from Firebase and from providers where necessary.
