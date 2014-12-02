@@ -218,13 +218,14 @@ public class MyActivity extends ActionBarActivity{
         public AuthResultHandler(String provider) {
             this.provider = provider;
         }
-        private Object userData;
+
         @Override
         public void onAuthenticated(AuthData authData) {
             mAuthProgressDialog.hide();
             Log.i(TAG, provider + " auth successful");
             setAuthenticatedUser(authData);
             final String userID = authData.getUid();
+<<<<<<< HEAD
             ref.child("users").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
@@ -233,6 +234,16 @@ public class MyActivity extends ActionBarActivity{
                         Map<String, String> map = new HashMap<String, String>();
                         map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx2");
                         ref.child("users").child(userID).setValue(map);
+=======
+            ref.child("users").child(authData.getUid()).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                        final Object userData = snapshot.getValue();
+                        if (userData == null) {
+                            Map<String, String> map = new HashMap<String, String>();
+                            map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx3");
+                            ref.child("users").child(userID).setValue(map);
+>>>>>>> Connor
                     }
                 }
 

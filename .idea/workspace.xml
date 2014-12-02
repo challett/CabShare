@@ -47,6 +47,7 @@
       <file leaf-file-name="viewOffersPage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/viewOffersPage.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1836">
               <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
               <folding>
@@ -65,6 +66,44 @@
                 <element signature="imports" expanded="true" />
                 <element signature="e#2991#3038#0" expanded="true" />
                 <element signature="e#8524#8540#0" expanded="true" />
+=======
+            <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="1836">
+              <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+>>>>>>> Connor
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenuPage.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MainMenuPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1207">
+              <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
+              <folding />
+=======
+            <state vertical-scroll-proportion="0.0" vertical-offset="679" max-vertical-offset="1292">
+              <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+>>>>>>> Connor
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MyActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.745514" vertical-offset="1495" max-vertical-offset="4658">
+              <caret line="234" column="75" selection-start-line="234" selection-start-column="75" selection-end-line="234" selection-end-column="75" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2991#3038#0" expanded="true" />
+                <element signature="e#8542#8558#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,7 +112,7 @@
       <file leaf-file-name="OfferMenuPage.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/OfferMenuPage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="1207">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1071" max-vertical-offset="1207">
               <caret line="63" column="5" selection-start-line="63" selection-start-column="5" selection-end-line="63" selection-end-column="5" />
               <folding />
             </state>
@@ -1099,6 +1138,8 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1440,7 +1481,11 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2991#3038#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#8524#8540#0" expanded="true" />
+=======
+            <element signature="e#8542#8558#0" expanded="true" />
+>>>>>>> Connor
           </folding>
         </state>
       </provider>
@@ -1497,7 +1542,11 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2991#3038#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#8524#8540#0" expanded="true" />
+=======
+            <element signature="e#8542#8558#0" expanded="true" />
+>>>>>>> Connor
           </folding>
         </state>
       </provider>
@@ -1674,6 +1723,7 @@
         <state />
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MainMenuPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
@@ -1684,6 +1734,8 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> Connor
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_create_offer_page.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.851851" vertical-offset="255" max-vertical-offset="952">
@@ -1840,7 +1892,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/viewOffersPage.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="510" max-vertical-offset="1836">
+=======
+        <state vertical-scroll-proportion="0.0" vertical-offset="952" max-vertical-offset="1836">
+>>>>>>> Connor
           <caret line="103" column="37" selection-start-line="103" selection-start-column="37" selection-end-line="103" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1848,6 +1904,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6769984" vertical-offset="3376" max-vertical-offset="4658">
@@ -1856,6 +1913,26 @@
             <element signature="imports" expanded="true" />
             <element signature="e#2991#3038#0" expanded="true" />
             <element signature="e#8524#8540#0" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MainMenuPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1292">
+          <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/connor/cabshare/MyActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.745514" vertical-offset="1495" max-vertical-offset="4658">
+          <caret line="234" column="75" selection-start-line="234" selection-start-column="75" selection-end-line="234" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2991#3038#0" expanded="true" />
+            <element signature="e#8542#8558#0" expanded="true" />
+>>>>>>> Connor
           </folding>
         </state>
       </provider>
