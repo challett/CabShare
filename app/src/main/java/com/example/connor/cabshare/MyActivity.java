@@ -224,10 +224,16 @@ public class MyActivity extends ActionBarActivity{
             mAuthProgressDialog.hide();
             Log.i(TAG, provider + " auth successful");
             setAuthenticatedUser(authData);
+            final String userID = authData.getUid();
             ref.child("users").addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot snapshot) {
                     userData = snapshot.getValue();
+                    if (userData == null) {
+                        Map<String, String> map = new HashMap<String, String>();
+                        map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx2");
+                        ref.child("users").child(userID).setValue(map);
+                    }
                 }
 
                 @Override
@@ -235,11 +241,7 @@ public class MyActivity extends ActionBarActivity{
                     System.out.println("The read failed: " + firebaseError.getMessage());
                 }
             });
-            if (userData == null) {
-                Map<String, String> map = new HashMap<String, String>();
-                map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx2");
-                ref.child("users").child(authData.getUid()).setValue(map);
-            }
+
         }
 
         @Override
