@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/requester"
+        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:text="REQUESTER" />
+
+    <TextView
+        android:id="@+id/destination"
+        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="DESTINATION" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accept"
+        android:id="@+id/acceptButton" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reject"
+        android:id="@+id/rejectButton" />
+
+
+</LinearLayout>

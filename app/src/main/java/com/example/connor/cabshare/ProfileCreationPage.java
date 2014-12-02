@@ -1,26 +1,18 @@
 package com.example.connor.cabshare;
 
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
-import com.example.connor.cabshare.MyActivity;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -63,7 +55,7 @@ public class ProfileCreationPage extends ActionBarActivity {
     }
 
     public void submitClick(View v){
-        email = (EditText)findViewById(R.id.editText);
+        email = (EditText)findViewById(R.id.destination);
         tempEmail = email.getText().toString();
         pass = (EditText)findViewById(R.id.editText3);
         tempPass = pass.getEditableText().toString();
@@ -71,8 +63,6 @@ public class ProfileCreationPage extends ActionBarActivity {
         tempName = name.getEditableText().toString();
         picURL = (EditText)findViewById(R.id.editText4);
         tempPicURL = picURL.getEditableText().toString();
-        username = (EditText)findViewById(R.id.editText5);
-        tempUsername = username.getEditableText().toString();
 
 
         myFirebaseRef.createUser(tempEmail, tempPass, new Firebase.ResultHandler() {
@@ -89,7 +79,6 @@ public class ProfileCreationPage extends ActionBarActivity {
         newUser.put("Name", tempName);
         newUser.put("Email", tempEmail);
         newUser.put("picURL", tempPicURL);
-        //myFirebaseRef.child("Users").child(authData.getUid()).setValue(newUser);
     }
 
     @Override

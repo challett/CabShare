@@ -3,8 +3,6 @@ package com.example.connor.cabshare;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -16,10 +14,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,7 +38,7 @@ public class MyActivity extends ActionBarActivity{
     private Firebase ref;
     private static AuthData authData;
     public static AuthData authData2;
-    private static final String TAG = "LoginDemo";
+    private static final String TAG = "CabShare";
 
     private EditText email;
     private EditText pass;
@@ -60,9 +59,9 @@ public class MyActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
-        email = (EditText)findViewById(R.id.editText);
+        email = (EditText)findViewById(R.id.destination);
         pass = (EditText)findViewById(R.id.editText2);
-        newUser = (Button)findViewById(R.id.button);
+        newUser = (Button)findViewById(R.id.editProfile);
         newUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,6 +75,7 @@ public class MyActivity extends ActionBarActivity{
             @Override
             public void onClick(View view) {
                 loginWithPassword();
+
             }
         });
 
@@ -178,8 +178,11 @@ public class MyActivity extends ActionBarActivity{
     private void setAuthenticatedUser(AuthData authData) {
         if (authData != null) {
             /* Hide all the login buttons */
-            mPasswordLoginButton.setVisibility(View.GONE);
+            //mPasswordLoginButton.setVisibility(View.GONE);//replace with main menu intent
             //newUser.setVisibility(View.GONE);
+            Intent callMain = new Intent(MyActivity.this, MainMenuPage.class);  //prepare the intent to redirect from logging in to main menu
+            startActivity(callMain);    //redirect to main menu
+
 
             mLoggedInStatusTextView.setVisibility(View.VISIBLE);
         } else {
@@ -215,12 +218,28 @@ public class MyActivity extends ActionBarActivity{
         public AuthResultHandler(String provider) {
             this.provider = provider;
         }
-
+        private Object userData;
         @Override
         public void onAuthenticated(AuthData authData) {
             mAuthProgressDialog.hide();
             Log.i(TAG, provider + " auth successful");
             setAuthenticatedUser(authData);
+            ref.child("users").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    userData = snapshot.getValue();
+                }
+
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+                    System.out.println("The read failed: " + firebaseError.getMessage());
+                }
+            });
+            if (userData == null) {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx2");
+                ref.child("users").child(authData.getUid()).setValue(map);
+            }
         }
 
         @Override
@@ -245,9 +264,14 @@ public class MyActivity extends ActionBarActivity{
         String tempEmail = email.getEditableText().toString();
         String tempPass = pass.getEditableText().toString();
 
+
         mAuthProgressDialog.show();
         ref.authWithPassword(tempEmail, tempPass, new AuthResultHandler("password"));
+
     }
+
+
+
 
 }
 

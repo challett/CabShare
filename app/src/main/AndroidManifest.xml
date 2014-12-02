@@ -17,8 +17,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ProfileCreationPage"
+            android:name=".ProfileCreationPage"
             android:label="@string/title_activity_profile_creation_page" >
+        </activity>
+        <activity
+            android:name=".MainMenuPage"
+            android:label="@string/title_activity_main_menu_page" >
+        </activity>
+        <activity
+            android:name=".EditProfilePage"
+            android:label="@string/title_activity_edit_profile_page" >
+        </activity>
+        <activity
+            android:name=".createRequestPage"
+            android:label="@string/title_activity_create_request_page" >
+        </activity>
+        <activity
+            android:name=".createOfferPage"
+            android:label="@string/title_activity_create_offer_page" >
+        </activity>
+        <activity
+            android:name=".OfferMenuPage"
+            android:label="@string/title_activity_offer_menu_page" >
+        </activity>
+        <activity
+            android:name=".viewRequestsPage"
+            android:label="@string/title_activity_view_requests_page" >
         </activity>
     </application>
 

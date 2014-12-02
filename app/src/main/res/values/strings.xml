@@ -10,5 +10,11 @@
     <!-- In order for this demo to work you need to provide your own Firebase, API keys and App IDs -->
     <string name="firebase_url">https://intense-torch-3362.firebaseio.com/</string>
     <string name="title_activity_profile_creation_page">ProfileCreationPage</string>
+    <string name="title_activity_main_menu_page">MainMenuPage</string>
+    <string name="title_activity_edit_profile_page">EditProfilePage</string>
+    <string name="title_activity_create_request_page">createRequestPage</string>
+    <string name="title_activity_create_offer_page">createOfferPage</string>
+    <string name="title_activity_offer_menu_page">OfferMenuPage</string>
+    <string name="title_activity_view_requests_page">viewRequestsPage</string>
 
 </resources>
