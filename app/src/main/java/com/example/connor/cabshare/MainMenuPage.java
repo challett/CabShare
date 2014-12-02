@@ -66,5 +66,10 @@ public class MainMenuPage extends ActionBarActivity {
         startActivity(offer);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        ref.unauth();
+    }
 }
