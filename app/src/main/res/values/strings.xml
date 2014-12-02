@@ -16,5 +16,6 @@
     <string name="title_activity_create_offer_page">createOfferPage</string>
     <string name="title_activity_offer_menu_page">OfferMenuPage</string>
     <string name="title_activity_view_requests_page">viewRequestsPage</string>
+    <string name="title_activity_view_offers_page">viewOffersPage</string>
 
 </resources>

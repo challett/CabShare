@@ -44,6 +44,10 @@
             android:name=".viewRequestsPage"
             android:label="@string/title_activity_view_requests_page" >
         </activity>
+        <activity
+            android:name=".viewOffersPage"
+            android:label="@string/title_activity_view_offers_page" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

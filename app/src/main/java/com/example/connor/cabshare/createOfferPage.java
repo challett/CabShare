@@ -65,7 +65,7 @@ public class createOfferPage extends ActionBarActivity {
         destination = (EditText)findViewById(R.id.destination);
         tempDestination = destination.getEditableText().toString();
         Map<String, String> newOffer = new HashMap<String, String>();
-        newOffer.put("Destination", tempDestination);
+        newOffer.put("destination", tempDestination);
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
         ref.child("Offers").child(authData.getUid()).setValue(newOffer);
 

@@ -14,4 +14,55 @@
         android:layout_height="wrap_content"
         android:id="@+id/R" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start point:"
+        android:id="@+id/textView"
+        android:layout_below="@+id/R"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="86dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reqStart"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/R"
+        android:layout_toEndOf="@+id/R" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Destination:"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/reqStart"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="51dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reqDestination"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/reqStart"
+        android:layout_alignEnd="@+id/reqStart"
+        android:layout_alignLeft="@+id/reqStart"
+        android:layout_alignStart="@+id/reqStart" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit Request"
+        android:id="@+id/submitRequest"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="86dp"
+        android:onClick="submit_request"
+        android:clickable="true" />
+
 </RelativeLayout>
