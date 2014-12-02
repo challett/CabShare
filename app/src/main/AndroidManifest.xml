@@ -48,6 +48,10 @@
             android:name=".viewOffersPage"
             android:label="@string/title_activity_view_offers_page" >
         </activity>
+        <activity
+            android:name=".test"
+            android:label="@string/title_activity_test" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

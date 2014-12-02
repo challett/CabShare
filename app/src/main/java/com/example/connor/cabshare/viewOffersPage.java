@@ -67,10 +67,14 @@ public class viewOffersPage extends ListActivity {
             public void onChanged() {
                 super.onChanged();
                 listView.setSelection(offerListAdapter.getCount() - 1);
+
             }
         });
 
+
     }
+
+
 
     @Override
     public void onStop() {
@@ -93,7 +97,9 @@ public class viewOffersPage extends ListActivity {
     @Override
     public void onBackPressed(){
         offerListAdapter.cleanup();
-        Intent back = new Intent(viewOffersPage.this, OfferMenuPage.class);
+        Intent back = new Intent(viewOffersPage.this, MainMenuPage.class);
         startActivity(back);
     }
+
+    //Add Button functionalities here!
 }
