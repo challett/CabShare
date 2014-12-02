@@ -52,6 +52,10 @@
             android:name=".test"
             android:label="@string/title_activity_test" >
         </activity>
+        <activity
+            android:name=".FirstTimeLogin"
+            android:label="@string/title_activity_first_time_login" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

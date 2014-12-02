@@ -18,5 +18,6 @@
     <string name="title_activity_view_requests_page">viewRequestsPage</string>
     <string name="title_activity_view_offers_page">viewOffersPage</string>
     <string name="title_activity_test">test</string>
+    <string name="title_activity_first_time_login">FirstTimeLogin</string>
 
 </resources>

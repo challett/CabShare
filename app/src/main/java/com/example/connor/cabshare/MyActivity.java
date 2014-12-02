@@ -230,9 +230,8 @@ public class MyActivity extends ActionBarActivity{
                 public void onDataChange(DataSnapshot snapshot) {
                         final Object userData = snapshot.getValue();
                         if (userData == null) {
-                            Map<String, String> map = new HashMap<String, String>();
-                            map.put("Test Data", "Hello World IM NOT WORKING IF YOU SEE ME IN DBx3");
-                            ref.child("users").child(userID).setValue(map);
+                            Intent redirectToFirstTimeLogin = new Intent(MyActivity.this, FirstTimeLogin.class);
+                            startActivity(redirectToFirstTimeLogin);
                     }
                 }
 

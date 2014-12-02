@@ -13,14 +13,14 @@
         android:text="create an offer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/nameTextView" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/destination"
-        android:layout_toEndOf="@+id/textView"
-        android:layout_below="@+id/textView"
+        android:layout_toEndOf="@+id/nameTextView"
+        android:layout_below="@+id/nameTextView"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="133dp"
