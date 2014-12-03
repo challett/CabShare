@@ -41,9 +41,7 @@ public class ViewOfferChat extends ListActivity {
         username = authData.getUid();
 
         offerer = viewOffersPage.getInstance();
-        try{
-            System.out.println(offerer);
-        }catch (NullPointerException p){
+        if (offerer == null){
             offerer = authData.getUid();
         }
 
@@ -92,7 +90,6 @@ public class ViewOfferChat extends ListActivity {
     @Override
     public void onStop() {
         super.onStop();
-        ref.getRoot().child(".info/connected").removeEventListener(connectedListener);
         chatListAdapter.cleanup();
     }
     @Override

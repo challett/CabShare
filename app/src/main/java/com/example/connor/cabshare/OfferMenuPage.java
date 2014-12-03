@@ -41,9 +41,8 @@ public class OfferMenuPage extends ActionBarActivity {
         viewRequestsButton = (Button)findViewById(R.id.viewRequestsButton);
         isCreater = false;
         offerer = viewOffersPage.getInstance();
-        try{
-            System.out.println(offerer);
-        }catch (NullPointerException p){
+        System.out.println(offerer);
+        if(offerer == null){
             isCreater = true;
             offerer = authData.getUid();
         }
