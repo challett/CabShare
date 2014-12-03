@@ -61,12 +61,12 @@ public class MainMenuPage extends ActionBarActivity {
     }
 
     public void requestClick(View v){
-        Intent req = new Intent(MainMenuPage.this, createRequestPage.class);
+        Intent req = new Intent(MainMenuPage.this, RequestMapsActivity.class);
         startActivity(req);
     }
 
     public void offerClick(View v){
-            Intent offer = new Intent(MainMenuPage.this, createOfferPage.class);
+            Intent offer = new Intent(MainMenuPage.this, MapsActivity.class);
             startActivity(offer);
 
 

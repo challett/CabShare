@@ -62,6 +62,10 @@ public class createRequestPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void viewMap(View v){
+        Intent map = new Intent(createRequestPage.this, RequestMapsActivity.class);
+        startActivity(map);
+    }
     public void submit_request(View v){
 
         reqStart = (EditText)findViewById(R.id.reqStart);

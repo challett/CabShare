@@ -1,7 +1,9 @@
 package com.example.connor.cabshare;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
+import android.location.Location;
 import android.os.AsyncTask;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.firebase.client.AuthData;
+import com.firebase.client.Firebase;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -33,15 +37,19 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MapsActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     MarkerOptions markerOptions;
     LatLng latLng;
+    LatLng destination;
+    AuthData authData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        authData = com.example.connor.cabshare.MyActivity.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
@@ -97,6 +105,7 @@ public class MapsActivity extends FragmentActivity {
             // Clears all the existing markers on the map
             mMap.clear();
 
+
             // Adding Markers on Google Map for each matching address
             for(int i=0;i<addresses.size();i++){
 
@@ -112,6 +121,8 @@ public class MapsActivity extends FragmentActivity {
                 markerOptions = new MarkerOptions();
                 markerOptions.position(latLng);
                 markerOptions.title(addressText);
+
+                destination = latLng;
 
                 mMap.addMarker(markerOptions);
 
@@ -134,11 +145,21 @@ public class MapsActivity extends FragmentActivity {
             mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map))
                     .getMap();
             latLng = new LatLng(43.2633,-79.9189);
+
             mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
             // Check if we were successful in obtaining the map.
+            mMap.setMyLocationEnabled(true);
             if (mMap != null) {
-                setUpMap();
+                mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
+
+                    @Override
+                    public void onMyLocationChange(Location arg0) {
+                        // TODO Auto-generated method stub
+                        mMap.clear();
+                        mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("Your Location"));
+                    }
+                });
             }
         }
     }
@@ -149,12 +170,6 @@ public class MapsActivity extends FragmentActivity {
      * <p/>
      * This should only be called once and when we are sure that {@link #mMap} is not null.
      */
-    private void setUpMap() {
-        //pass points from dispatcher instead of these
-        LatLng from = new LatLng(43.2255, -79.8733);
-        mMap.addMarker(new MarkerOptions().position(from).title("Marker"));
-    }
-
     private String getDirectionsUrl(LatLng origin, LatLng dest) {
 
         // Origin of route
@@ -287,6 +302,14 @@ public class MapsActivity extends FragmentActivity {
         }
 
     }
+    public void submitOffer(View view){
+        Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        Map<String, String> newOffer = new HashMap<String, String>();
+        newOffer.put("destination", destination.toString());
+        ref.child("Offers").child(authData.getUid()).setValue(newOffer);
 
+        Intent i = new Intent(MapsActivity.this, OfferMenuPage.class);
+        startActivity(i);
+    }
 
 }

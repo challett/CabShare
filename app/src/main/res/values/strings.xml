@@ -23,5 +23,6 @@
     <string name="title_activity_requester_waiting">requesterWaiting</string>
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_directions_jsonparser">DirectionsJSONParser</string>
+    <string name="title_activity_request_maps">RequestMapsActivity</string>
 
 </resources>
