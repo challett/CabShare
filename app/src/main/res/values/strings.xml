@@ -19,5 +19,7 @@
     <string name="title_activity_view_offers_page">viewOffersPage</string>
     <string name="title_activity_test">test</string>
     <string name="title_activity_first_time_login">FirstTimeLogin</string>
+    <string name="title_activity_view_offer_chat">ViewOfferChat</string>
+    <string name="title_activity_requester_waiting">requesterWaiting</string>
 
 </resources>

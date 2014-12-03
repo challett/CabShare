@@ -23,13 +23,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Accept"
-        android:id="@+id/acceptButton" />
+        android:id="@+id/acceptButton"
+        android:onClick="acceptRequest" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reject"
-        android:id="@+id/rejectButton" />
+        android:id="@+id/rejectButton"
+        android:onClick="rejectRequest" />
 
 
 </LinearLayout>

@@ -56,6 +56,14 @@
             android:name=".FirstTimeLogin"
             android:label="@string/title_activity_first_time_login" >
         </activity>
+        <activity
+            android:name=".ViewOfferChat"
+            android:label="@string/title_activity_view_offer_chat" >
+        </activity>
+        <activity
+            android:name=".requesterWaiting"
+            android:label="@string/title_activity_requester_waiting" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

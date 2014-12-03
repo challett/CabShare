@@ -38,6 +38,8 @@ public class viewRequestsPage extends ListActivity {
     private RequestListAdapter requestListAdapter;
     private AuthData authData;
 
+    private String requester;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,5 +98,13 @@ public class viewRequestsPage extends ListActivity {
         requestListAdapter.cleanup();
         Intent back = new Intent(viewRequestsPage.this, OfferMenuPage.class);
         startActivity(back);
+    }
+
+    public void rejectRequest(View v){
+        Button rejectButton = (Button)v.findViewById(R.id.rejectButton);
+        requester = rejectButton.getTag().toString();
+        Firebase ref2 = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        ref2.child("Offers").child(authData.getUid()).child("Requests").child(requester).setValue(null);
+        ref2.child("Requests").child(requester).child("AwaitResponse").setValue(null);
     }
 }

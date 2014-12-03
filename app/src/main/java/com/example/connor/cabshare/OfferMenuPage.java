@@ -30,12 +30,28 @@ import java.util.Map;
 
 public class OfferMenuPage extends ActionBarActivity {
     private AuthData authData;
+    private String offerer;
+    private Boolean isCreater = false;
+    private Button viewRequestsButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offer_menu_page);
-
         authData = com.example.connor.cabshare.MyActivity.getInstance();
+        viewRequestsButton = (Button)findViewById(R.id.viewRequestsButton);
+        try{
+            offerer = viewOffersPage.getInstance();
+        }catch(NullPointerException p){
+            offerer = authData.getUid();
+            isCreater = true;
+        }
+
+        if(isCreater != true){
+            viewRequestsButton.setVisibility(View.GONE);
+        }
+
+
+
     }
 
 
@@ -43,6 +59,7 @@ public class OfferMenuPage extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.offer_menu_page, menu);
+
         return true;
     }
 
@@ -60,6 +77,11 @@ public class OfferMenuPage extends ActionBarActivity {
 
     public void viewRequests(View v){
         Intent i = new Intent(OfferMenuPage.this, viewRequestsPage.class);
+        startActivity(i);
+    }
+
+    public void viewChat(View v){
+        Intent i = new Intent(OfferMenuPage.this, ViewOfferChat.class);
         startActivity(i);
     }
 }

@@ -37,6 +37,14 @@ public class viewOffersPage extends ListActivity {
     private OfferListAdapter offerListAdapter;
     private AuthData authData;
 
+    private static String offerer;
+    public static String offerer2;
+
+    public static synchronized String getInstance(){
+        offerer2 = offerer;
+        return offerer2;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,4 +110,27 @@ public class viewOffersPage extends ListActivity {
     }
 
     //Add Button functionalities here!
+
+    public void acceptOffer(View v){
+        Button acceptButton = (Button)v.findViewById(R.id.acceptButton);
+        offerer = acceptButton.getTag().toString();
+
+        Map<String, String> AskToJoin = new HashMap<String, String>();
+        Map<String, String> NowWait = new HashMap<String, String>();
+        AskToJoin.put("Offerer", offerer);
+        NowWait.put(offerer,offerer);
+        Firebase ref2 = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        ref2.child("Requests").child(authData.getUid()).child("AskToJoin").setValue(AskToJoin);
+        ref2.child("Requests").child(authData.getUid()).child("AwaitResponse").setValue(NowWait);
+        Intent wait = new Intent(viewOffersPage.this, requesterWaiting.class);
+        startActivity(wait);
+
+    }
+
+    public void rejectOffer(View v){
+        Button rejectButton = (Button)v.findViewById(R.id.rejectButton);
+        offerer = rejectButton.getTag().toString();
+        Firebase ref3 = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        ref3.child("Requests").child(authData.getUid()).child("MatchedOfferID").child(offerer).setValue(null);
+    }
 }
