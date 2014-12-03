@@ -2,40 +2,40 @@
 <pre-dex-items>
 
     <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-89a68000e5ca3bffbac024998fd7234549b56edb.jar"
-        jar="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\libs\internal_impl-21.0.2.jar"
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\classes-df20cec7f2acfca3c9b1aadaee3af71b8152ff7f.jar"
+        jar="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f"/>
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3"/>
     <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\classes-25ef8ceb96d708bf9f42801f1b3d70a0e33520b1.jar"
-        jar="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.2\classes.jar"
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\classes-d97cb2c488d74277a9f095b33ed6c15223aefc5a.jar"
+        jar="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.2\classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54"/>
     <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\firebase-client-android-1.1.1-04327b41de09685e7b5cce7ced4f930df053da5e.jar"
-        jar="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\libs\firebase-client-android-1.1.1.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="083aee62faa9c7db01c433036e56cdaced3a51ea"/>
-    <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\classes-cd9c76f1711a548715b5d49ef09f991f5d2408d1.jar"
-        jar="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da"/>
-    <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-6489dffee629758eba6fa65f53b3fafae6facefc.jar"
-        jar="C:\Users\Connor\AppData\Local\Android\android-studio\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.2\support-annotations-21.0.2.jar"
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.2-fa883d6290039362849f114a5bf013892e2506b3.jar"
+        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.2\support-annotations-21.0.2.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6"/>
     <item
-        dex="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\pre-dexed\debug\classes-211310c9119df3dab97942145f5dad6bc2bf1766.jar"
-        jar="D:\Users\Connor\AndroidStudioProjects\CabShare2\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\classes.jar"
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\classes-e9ed370f64a2ff4cc7fce84eeb746641a26c569c.jar"
+        jar="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\exploded-aar\com.google.android.gms\play-services\6.1.71\classes.jar"
         jumboMode="false"
         revision="20.0.0"
-        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3"/>
+        sha1="0f6d5c1ef2e982c3b7858408e3df389cf5d202da"/>
+    <item
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.2-8d21a609538aa9ef5e7eb910b5c01e545e2bd9b3.jar"
+        jar="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.2\libs\internal_impl-21.0.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f"/>
+    <item
+        dex="C:\Users\Karen_2\Documents\GitHub\CabShare\app\build\intermediates\pre-dexed\debug\firebase-client-android-1.1.1-3056751270b6b26f425febd6af819a970083fc3c.jar"
+        jar="C:\Users\Karen_2\Documents\GitHub\CabShare\app\libs\firebase-client-android-1.1.1.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="083aee62faa9c7db01c433036e56cdaced3a51ea"/>
 
 </pre-dex-items>

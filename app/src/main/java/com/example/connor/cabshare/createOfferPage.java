@@ -1,28 +1,18 @@
 package com.example.connor.cabshare;
 
-import android.app.ActionBar;
-import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.os.AsyncTask;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.firebase.client.AuthData;
-import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,26 +51,39 @@ public class createOfferPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void viewMap(View v){
+    public void viewMap(View v) {
         Intent map = new Intent(createOfferPage.this, MapsActivity.class);
         startActivity(map);
     }
 
-    public void submit_offer(View v){
-        destination = (EditText)findViewById(R.id.destination);
+    public void submit_offer(View v) {
+        destination = (EditText) findViewById(R.id.destination);
         tempDestination = destination.getEditableText().toString();
         Map<String, String> newOffer = new HashMap<String, String>();
         newOffer.put("destination", tempDestination);
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
         ref.child("Offers").child(authData.getUid()).setValue(newOffer);
-
+        String startLocation = getCurrentLocation();
         Intent viewOfferMenu = new Intent(createOfferPage.this, OfferMenuPage.class);
         startActivity(viewOfferMenu);
-
     }
 
-    public void onBackPressed(){
+    public void onBackPressed() {
         super.onBackPressed();
         this.finish();
+    }
+
+    public String getCurrentLocation() {
+        String location = new String();
+        AppLocationService appLocationService = new AppLocationService(
+                createOfferPage.this);
+        Location gpsLocation = appLocationService
+                .getLocation(LocationManager.GPS_PROVIDER);
+        if (gpsLocation != null) {
+            double latitude = gpsLocation.getLatitude();
+            double longitude = gpsLocation.getLongitude();
+            location = Double.toString(latitude) + " " + Double.toString(longitude);
+        }
+        return location;
     }
 }
