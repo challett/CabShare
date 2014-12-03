@@ -105,8 +105,8 @@ public class viewOffersPage extends ListActivity {
     @Override
     public void onBackPressed(){
         offerListAdapter.cleanup();
-        Intent back = new Intent(viewOffersPage.this, MainMenuPage.class);
-        startActivity(back);
+        super.onBackPressed();
+        this.finish();
     }
 
     //Add Button functionalities here!
@@ -133,4 +133,5 @@ public class viewOffersPage extends ListActivity {
         Firebase ref3 = new Firebase("https://intense-torch-3362.firebaseio.com/");
         ref3.child("Requests").child(authData.getUid()).child("MatchedOfferID").child(offerer).setValue(null);
     }
+
 }

@@ -86,4 +86,9 @@ public class OfferMenuPage extends ActionBarActivity {
         Intent i = new Intent(OfferMenuPage.this, ViewOfferChat.class);
         startActivity(i);
     }
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
 }

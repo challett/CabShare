@@ -24,11 +24,15 @@ import java.util.Map;
 
 public class MainMenuPage extends ActionBarActivity {
     private AuthData authData;
+    private Button offerCab;
+    private ValueEventListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_page);
+        offerCab = (Button)findViewById(R.id.offerButton);
+
     }
 
 
@@ -62,8 +66,14 @@ public class MainMenuPage extends ActionBarActivity {
     }
 
     public void offerClick(View v){
-        Intent offer = new Intent(MainMenuPage.this, createOfferPage.class);
-        startActivity(offer);
+            Intent offer = new Intent(MainMenuPage.this, createOfferPage.class);
+            startActivity(offer);
+
+
+    }
+
+    public void existingOfferClick(View v){
+        //TODO: implement this
     }
 
     @Override
@@ -71,5 +81,6 @@ public class MainMenuPage extends ActionBarActivity {
         super.onBackPressed();
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
         ref.unauth();
+        this.finish();
     }
 }

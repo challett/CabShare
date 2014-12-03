@@ -15,6 +15,9 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 public class requesterWaiting extends Activity {
     public String offerer;
@@ -24,6 +27,7 @@ public class requesterWaiting extends Activity {
     private Button goBack;
     private TextView acceptedText;
     private Button offerButton;
+    private ValueEventListener listener;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +39,7 @@ public class requesterWaiting extends Activity {
         offerButton = (Button)findViewById(R.id.offerButton);
         TextView awaitingText = (TextView)findViewById(R.id.awaitingText);
         awaitingText.setText("Awaiting response from " + offerer);
-        ref.child("Requests").child(authData.getUid()).addValueEventListener(new ValueEventListener() {
+        listener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 final Object waitingOn = snapshot.child("AwaitResponse").getValue();
@@ -61,9 +65,15 @@ public class requesterWaiting extends Activity {
             public void onCancelled(FirebaseError firebaseError) {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
-        });
+        };
+        ref.child("Requests").child(authData.getUid()).addValueEventListener(listener);
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        ref.child("Requests").child(authData.getUid()).removeEventListener(listener);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,7 +100,10 @@ public class requesterWaiting extends Activity {
     }
 
     public void goToOfferMenu(View v){
-        Intent goToOfferMenupage = new Intent(requesterWaiting.this, OfferMenuPage.class);
-        startActivity(goToOfferMenupage);
+        Map<String, String> newPassenger = new HashMap<String, String>();
+        newPassenger.put("name:", authData.getUid());
+        ref.child("Offers").child(offerer).child("Passengers").child(authData.getUid()).setValue(newPassenger);
+        Intent goToOfferMenuPage = new Intent(requesterWaiting.this, OfferMenuPage.class);
+        startActivity(goToOfferMenuPage);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.connor.cabshare;
 
         import android.app.ListActivity;
+        import android.content.Intent;
         import android.content.SharedPreferences;
         import android.database.DataSetObserver;
         import android.os.Bundle;
@@ -92,6 +93,11 @@ public class ViewOfferChat extends ListActivity {
     public void onStop() {
         super.onStop();
         ref.getRoot().child(".info/connected").removeEventListener(connectedListener);
+        chatListAdapter.cleanup();
+    }
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
         chatListAdapter.cleanup();
     }
 

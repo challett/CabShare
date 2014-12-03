@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.database.DataSetObserver;
@@ -18,6 +19,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.client.AuthData;
 import com.firebase.client.DataSnapshot;
@@ -96,8 +98,25 @@ public class viewRequestsPage extends ListActivity {
     @Override
     public void onBackPressed(){
         requestListAdapter.cleanup();
-        Intent back = new Intent(viewRequestsPage.this, OfferMenuPage.class);
-        startActivity(back);
+        super.onBackPressed();
+        this.finish();
+    }
+
+    public void acceptRequest(View v){
+        Button acceptButton = (Button)v.findViewById(R.id.acceptButton);
+        requester = acceptButton.getTag().toString();
+        Firebase ref2 = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        Map<String, String> newOffer = new HashMap<String, String>();
+        newOffer.put("Approved", authData.getUid());
+        ref2.child("Requests").child(requester).child("Approved").setValue(newOffer);
+        ref2.child("Offers").child(authData.getUid()).child("Requests").child(requester).setValue(null);
+
+        Context context = getApplicationContext();
+        CharSequence text = "User has been added to your offer!";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
     }
 
     public void rejectRequest(View v){

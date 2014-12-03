@@ -53,4 +53,9 @@ public class EditProfilePage extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
 }

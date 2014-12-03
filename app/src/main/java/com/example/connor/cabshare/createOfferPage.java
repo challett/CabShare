@@ -73,4 +73,9 @@ public class createOfferPage extends ActionBarActivity {
         startActivity(viewOfferMenu);
 
     }
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
 }

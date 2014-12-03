@@ -67,6 +67,7 @@ public class MyActivity extends ActionBarActivity{
             public void onClick(View view) {
                 Intent myIntent = new Intent(MyActivity.this, ProfileCreationPage.class);
                 startActivity(myIntent);
+
             }
         });
 
@@ -144,6 +145,9 @@ public class MyActivity extends ActionBarActivity{
     /**
      * Unauthenticate from Firebase and from providers where necessary.
      */
+
+
+
     private void logout() {
         if (this.authData != null) {
             /* logout of Firebase */

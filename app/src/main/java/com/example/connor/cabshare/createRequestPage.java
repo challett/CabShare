@@ -80,4 +80,9 @@ public class createRequestPage extends ActionBarActivity {
         startActivity(seeOffers);
 
     }
+
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
 }

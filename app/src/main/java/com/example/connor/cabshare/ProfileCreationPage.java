@@ -54,6 +54,11 @@ public class ProfileCreationPage extends ActionBarActivity {
 
     }
 
+    public void onBackPressed(){
+        super.onBackPressed();
+        this.finish();
+    }
+
     public void submitClick(View v){
         email = (EditText)findViewById(R.id.destination);
         tempEmail = email.getText().toString();
