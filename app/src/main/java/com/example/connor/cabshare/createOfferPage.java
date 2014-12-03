@@ -61,6 +61,11 @@ public class createOfferPage extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void viewMap(View v){
+        Intent map = new Intent(createOfferPage.this, MapsActivity.class);
+        startActivity(map);
+    }
+
     public void submit_offer(View v){
         destination = (EditText)findViewById(R.id.destination);
         tempDestination = destination.getEditableText().toString();
