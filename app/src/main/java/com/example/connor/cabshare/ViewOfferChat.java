@@ -28,6 +28,8 @@ public class ViewOfferChat extends ListActivity {
     private ValueEventListener connectedListener;
     private ChatListAdapter chatListAdapter;
     private static String username;
+    private String offerer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,21 +37,17 @@ public class ViewOfferChat extends ListActivity {
         setContentView(R.layout.activity_view_offer_chat);
         ref2 = new Firebase(FIREBASE_URL);
         authData = com.example.connor.cabshare.MyActivity.getInstance();
-        ref2.child("user").child(authData.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                username = dataSnapshot.getValue().toString();
-            }
+        username = authData.getUid();
 
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        });
-
+        offerer = viewOffersPage.getInstance();
+        try{
+            System.out.println(offerer);
+        }catch (NullPointerException p){
+            offerer = authData.getUid();
+        }
 
         // Setup our Firebase ref
-        ref = new Firebase(FIREBASE_URL).child("Offers").child("chatTest");
+        ref = new Firebase(FIREBASE_URL).child("Offers").child(offerer).child("chat");
 
         // Setup our input methods. Enter key on the keyboard or pushing the send button
         EditText inputText = (EditText)findViewById(R.id.messageInput);

@@ -31,7 +31,7 @@ import java.util.Map;
 public class OfferMenuPage extends ActionBarActivity {
     private AuthData authData;
     private String offerer;
-    private Boolean isCreater = false;
+    private Boolean isCreater;
     private Button viewRequestsButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +39,13 @@ public class OfferMenuPage extends ActionBarActivity {
         setContentView(R.layout.activity_offer_menu_page);
         authData = com.example.connor.cabshare.MyActivity.getInstance();
         viewRequestsButton = (Button)findViewById(R.id.viewRequestsButton);
+        isCreater = false;
+        offerer = viewOffersPage.getInstance();
         try{
-            offerer = viewOffersPage.getInstance();
-        }catch(NullPointerException p){
-            offerer = authData.getUid();
+            System.out.println(offerer);
+        }catch (NullPointerException p){
             isCreater = true;
+            offerer = authData.getUid();
         }
 
         if(isCreater != true){
