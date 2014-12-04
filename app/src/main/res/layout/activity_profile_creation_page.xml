@@ -66,7 +66,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText4"
+        android:id="@+id/radiusEditText"
         android:layout_below="@+id/editText2"
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignStart="@+id/editText2"
@@ -112,10 +112,10 @@
         android:layout_height="wrap_content"
         android:text="PicURL"
         android:id="@+id/textView6"
-        android:layout_toStartOf="@+id/editText4"
-        android:layout_alignBottom="@+id/editText4"
-        android:layout_toLeftOf="@+id/editText4"
+        android:layout_toStartOf="@+id/radiusEditText"
+        android:layout_alignBottom="@+id/radiusEditText"
+        android:layout_toLeftOf="@+id/radiusEditText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/editText4" />
+        android:layout_alignTop="@+id/radiusEditText" />
 </RelativeLayout>

@@ -321,13 +321,16 @@ public class RequestMapsActivity extends FragmentActivity {
         }
         return location;
     }
-
+    public EditText radius;
     public void submitRequest(View view){
+        radius = (EditText)findViewById(R.id.radiusEditText);
+        String tempRadius = radius.getEditableText().toString();
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
         Map<String, String> newRequest = new HashMap<String, String>();
         String startLocation = getCurrentLocation();
         newRequest.put("start", startLocation);
         newRequest.put("destination", latLng.toString());
+        newRequest.put("radius", tempRadius);
         ref.child("Requests").child(authData.getUid()).setValue(newRequest);
         Intent i = new Intent(RequestMapsActivity.this, viewOffersPage.class);
         startActivity(i);

@@ -88,6 +88,10 @@
             android:name=".RequestMapsActivity"
             android:label="@string/title_activity_request_maps" >
         </activity>
+        <activity
+            android:name=".Checkout"
+            android:label="@string/title_activity_checkout" >
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

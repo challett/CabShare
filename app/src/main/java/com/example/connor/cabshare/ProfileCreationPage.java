@@ -66,7 +66,7 @@ public class ProfileCreationPage extends ActionBarActivity {
         tempPass = pass.getEditableText().toString();
         name = (EditText)findViewById(R.id.editText2);
         tempName = name.getEditableText().toString();
-        picURL = (EditText)findViewById(R.id.editText4);
+        picURL = (EditText)findViewById(R.id.radiusEditText);
         tempPicURL = picURL.getEditableText().toString();
 
 

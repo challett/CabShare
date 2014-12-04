@@ -30,9 +30,18 @@ import java.util.Map;
 
 public class OfferMenuPage extends ActionBarActivity {
     private AuthData authData;
-    private String offerer;
+    private static String offerer;
     private Boolean isCreater;
     private Button viewRequestsButton;
+    public static String offerer2;
+
+    private Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
+
+    public static synchronized String getInstance(){
+        offerer2 = offerer;
+        return offerer2;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +50,6 @@ public class OfferMenuPage extends ActionBarActivity {
         viewRequestsButton = (Button)findViewById(R.id.viewRequestsButton);
         isCreater = false;
         offerer = viewOffersPage.getInstance();
-        System.out.println(offerer);
         if(offerer == null){
             isCreater = true;
             offerer = authData.getUid();
@@ -89,5 +97,16 @@ public class OfferMenuPage extends ActionBarActivity {
     public void onBackPressed(){
         super.onBackPressed();
         this.finish();
+    }
+
+    public void onCheckout(View v){
+
+        Map<String, String> askToPay = new HashMap<String, String>();
+        askToPay.put("AskToPay", "yes");
+        ref.child("Offers").child(offerer).child("AskToPay").setValue(askToPay);
+
+        Intent i = new Intent(OfferMenuPage.this, Checkout.class);
+        startActivity(i);
+
     }
 }
