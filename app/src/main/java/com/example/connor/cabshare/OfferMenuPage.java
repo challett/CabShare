@@ -34,6 +34,7 @@ public class OfferMenuPage extends ActionBarActivity {
     private Boolean isCreater;
     private Button viewRequestsButton;
     public static String offerer2;
+    private Button cancelButton;
 
     private Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
 
@@ -48,6 +49,7 @@ public class OfferMenuPage extends ActionBarActivity {
         setContentView(R.layout.activity_offer_menu_page);
         authData = com.example.connor.cabshare.MyActivity.getInstance();
         viewRequestsButton = (Button)findViewById(R.id.viewRequestsButton);
+        cancelButton = (Button)findViewById(R.id.button);
         isCreater = false;
         offerer = viewOffersPage.getInstance();
         if(offerer == null){
@@ -57,6 +59,8 @@ public class OfferMenuPage extends ActionBarActivity {
 
         if(isCreater != true){
             viewRequestsButton.setVisibility(View.GONE);
+            cancelButton.setVisibility(View.GONE);
+
         }
 
 
@@ -108,5 +112,11 @@ public class OfferMenuPage extends ActionBarActivity {
         Intent i = new Intent(OfferMenuPage.this, Checkout.class);
         startActivity(i);
 
+    }
+
+    public void cancel(View v){
+        ref.child("Offers").child(offerer).setValue(null);
+        Intent i = new Intent(OfferMenuPage.this, MainMenuPage.class);
+        startActivity(i);
     }
 }

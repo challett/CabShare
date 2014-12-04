@@ -37,8 +37,12 @@ public class requesterWaiting extends Activity {
         offerer = viewOffersPage.getInstance();
         acceptedText = (TextView)findViewById(R.id.acceptedTextView);
         offerButton = (Button)findViewById(R.id.offerButton);
+        declinedText.setVisibility(View.GONE);
+        goBack.setVisibility(View.GONE);
+        acceptedText.setVisibility(View.GONE);
+        offerButton.setVisibility(View.GONE);
         TextView awaitingText = (TextView)findViewById(R.id.awaitingText);
-        awaitingText.setText("Awaiting response from " + offerer);
+        awaitingText.setText("Awaiting response");
         listener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {

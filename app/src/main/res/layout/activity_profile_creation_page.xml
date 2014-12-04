@@ -51,7 +51,8 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/editText3"
         android:layout_toStartOf="@+id/editText3"
-        android:layout_marginBottom="92dp" />
+        android:layout_marginBottom="92dp"
+        android:onClick="cancel" />
 
     <EditText
         android:layout_width="wrap_content"

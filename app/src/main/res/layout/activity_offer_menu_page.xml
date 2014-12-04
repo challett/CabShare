@@ -46,4 +46,15 @@
         android:layout_alignParentEnd="true"
         android:onClick="onCheckout" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cancel Offer"
+        android:id="@+id/button"
+        android:layout_below="@+id/viewRequestsButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="90dp"
+        android:onClick="cancel" />
+
 </RelativeLayout>

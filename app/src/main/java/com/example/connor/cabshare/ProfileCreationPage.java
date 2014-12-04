@@ -84,6 +84,8 @@ public class ProfileCreationPage extends ActionBarActivity {
         newUser.put("Name", tempName);
         newUser.put("Email", tempEmail);
         newUser.put("picURL", tempPicURL);
+        Intent i = new Intent(ProfileCreationPage.this, MyActivity.class);
+        startActivity(i);
     }
 
     @Override
@@ -103,6 +105,10 @@ public class ProfileCreationPage extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    public void cancel(View v){
+        Intent i = new Intent(ProfileCreationPage.this, MyActivity.class);
+        startActivity(i);
     }
 
     public void postToFirebase(){

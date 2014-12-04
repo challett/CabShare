@@ -46,7 +46,7 @@ public class RequestListAdapter extends FirebaseListAdapter<Request> {
                 System.out.println("The read failed: " + firebaseError.getMessage());
             }
         });
-
+        requesterText.setText(requesterName);
         ((TextView)view.findViewById(R.id.destination)).setText(request.getDestination());
 
         Button acceptRequest = (Button)view.findViewById(R.id.acceptButton);
