@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -17,7 +18,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.client.AuthData;
+import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
+import com.firebase.client.FirebaseError;
+import com.firebase.client.ValueEventListener;
+import com.firebase.client.snapshot.Node;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -302,13 +307,33 @@ public class RequestMapsActivity extends FragmentActivity {
         }
 
     }
+
+    public String getCurrentLocation() {
+        String location = new String();
+        AppLocationService appLocationService = new AppLocationService(
+                RequestMapsActivity.this);
+        Location gpsLocation = appLocationService
+                .getLocation(LocationManager.GPS_PROVIDER);
+        if (gpsLocation != null) {
+            double latitude = gpsLocation.getLatitude();
+            double longitude = gpsLocation.getLongitude();
+            location = Double.toString(latitude) + " " + Double.toString(longitude);
+        }
+        return location;
+    }
+
     public void submitRequest(View view){
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
         Map<String, String> newRequest = new HashMap<String, String>();
-        newRequest.put("destination", destination.toString());
+        String startLocation = getCurrentLocation();
+        newRequest.put("start", startLocation);
+        newRequest.put("destination", latLng.toString());
         ref.child("Requests").child(authData.getUid()).setValue(newRequest);
         Intent i = new Intent(RequestMapsActivity.this, viewOffersPage.class);
         startActivity(i);
+
+
+
     }
 
 }

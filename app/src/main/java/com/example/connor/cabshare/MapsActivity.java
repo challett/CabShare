@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -155,8 +156,7 @@ public class MapsActivity extends FragmentActivity {
 
                     @Override
                     public void onMyLocationChange(Location arg0) {
-                        // TODO Auto-generated method stub
-                        mMap.clear();
+                        // TODO Auto-generated method stub7
                         mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("Your Location"));
                     }
                 });
@@ -302,10 +302,25 @@ public class MapsActivity extends FragmentActivity {
         }
 
     }
+    public String getCurrentLocation() {
+        String location = new String();
+        AppLocationService appLocationService = new AppLocationService(
+                MapsActivity.this);
+        Location gpsLocation = appLocationService
+                .getLocation(LocationManager.GPS_PROVIDER);
+        if (gpsLocation != null) {
+            double latitude = gpsLocation.getLatitude();
+            double longitude = gpsLocation.getLongitude();
+            location = Double.toString(latitude) + " " + Double.toString(longitude);
+        }
+        return location;
+    }
     public void submitOffer(View view){
         Firebase ref = new Firebase("https://intense-torch-3362.firebaseio.com/");
+        String startLocation = getCurrentLocation();
         Map<String, String> newOffer = new HashMap<String, String>();
-        newOffer.put("destination", destination.toString());
+        newOffer.put("start", startLocation);
+        newOffer.put("destination", latLng.toString());
         ref.child("Offers").child(authData.getUid()).setValue(newOffer);
 
         Intent i = new Intent(MapsActivity.this, OfferMenuPage.class);

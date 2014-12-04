@@ -98,11 +98,28 @@ public class requesterWaiting extends Activity {
         Intent returnToOfferPage = new Intent(requesterWaiting.this, viewOffersPage.class);
         startActivity(returnToOfferPage);
     }
-
+    String startPoint;
+    Map<String, String> newPassenger;
     public void goToOfferMenu(View v){
-        Map<String, String> newPassenger = new HashMap<String, String>();
-        newPassenger.put("name:", authData.getUid());
-        ref.child("Offers").child(offerer).child("Passengers").child(authData.getUid()).setValue(newPassenger);
+        ValueEventListener listener2 = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                final Map<String, String> requestData = (Map<String, String>) snapshot.getValue();
+                startPoint = requestData.get("start");
+                newPassenger = new HashMap<String, String>();
+                newPassenger.put("start", startPoint);
+                newPassenger.put("name", authData.getUid());
+                ref.child("Offers").child(offerer).child("Passengers").child(authData.getUid()).setValue(newPassenger);
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        };
+        ref.child("Requests").child(authData.getUid()).addValueEventListener(listener2);
+        ref.child("Requests").child(authData.getUid()).removeEventListener(listener2);
+        ref.child("Requests").child(authData.getUid()).setValue(null);
         Intent goToOfferMenuPage = new Intent(requesterWaiting.this, OfferMenuPage.class);
         startActivity(goToOfferMenuPage);
     }

@@ -38,7 +38,18 @@ public class ViewOfferChat extends ListActivity {
         setContentView(R.layout.activity_view_offer_chat);
         ref2 = new Firebase(FIREBASE_URL);
         authData = com.example.connor.cabshare.MyActivity.getInstance();
-        username = authData.getUid();
+        ref2.child("users").child(authData.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                final Map<String,String> userData = (Map<String, String>)snapshot.getValue();
+                username = userData.get("Name");
+            }
+
+            @Override
+            public void onCancelled(FirebaseError firebaseError) {
+                System.out.println("The read failed: " + firebaseError.getMessage());
+            }
+        });
 
         offerer = viewOffersPage.getInstance();
         if (offerer == null){

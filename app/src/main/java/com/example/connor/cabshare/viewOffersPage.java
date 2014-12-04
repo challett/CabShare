@@ -109,8 +109,6 @@ public class viewOffersPage extends ListActivity {
         this.finish();
     }
 
-    //Add Button functionalities here!
-
     public void acceptOffer(View v){
         Button acceptButton = (Button)v.findViewById(R.id.acceptButton);
         offerer = acceptButton.getTag().toString();
